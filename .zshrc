@@ -36,6 +36,22 @@ alias gpgopsec='gpg --default-key 0x85D77543B3D624B63CEA9E6DBC17301B491B3F21'
 alias qemu='qemu-system-x86_64 -smp 4 -m 1024 -k fr --enable-kvm -net nic -net vde --hda '
 alias tabchecker="grep -HrP '\t' ."
 
+# Functions
+##
+
+# inotify
+function onchangedo() {
+	[[ $# -eq 0 ]] && {
+		run="make"
+	} || {
+		run=$*
+	}
+	while true; do
+	       	inotifywait -e modify *
+		eval $run
+	done
+}
+
 # VirtualEnv shortcuts
 function mkvenv() {
         mkdir -p ~/.virtualenvs/$1
