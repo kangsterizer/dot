@@ -1,5 +1,11 @@
 [push]
-	default = simple
+	default	= simple
 [user]
-	email = kang@mozilla.com
-	name = Guillaume Destuynder
+	email	= kang@mozilla.com
+	name	= Guillaume Destuynder
+[alias]
+	co	= checkout
+	ci	= commit -a
+	pu	= push
+	up	= pull
+	st	= status -sb
